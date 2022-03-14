@@ -67,6 +67,7 @@ class PodmanContainer(SubprocessBase):
         ans += [
             "run",
             "--rm",
+            "--tls-verify=false",
             "--workdir",
             os.path.join(self.container_dir, "work"),
         ]

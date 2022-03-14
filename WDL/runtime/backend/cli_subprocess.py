@@ -137,7 +137,7 @@ class SubprocessBase(TaskContainer):
         image = self.runtime_values.get(
             "docker", self.cfg.get_dict("task_runtime", "defaults")["docker"]
         )
-        return (image, self.cli_exe + ["pull", image])
+        return (image, self.cli_exe + ["pull","--tls-verify=false", image])
 
     @abstractmethod
     def _run_invocation(self, logger: logging.Logger, cleanup: ExitStack, image: str) -> List[str]:
